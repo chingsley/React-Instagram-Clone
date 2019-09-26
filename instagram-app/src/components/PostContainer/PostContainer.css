@@ -1,0 +1,43 @@
+.post-container {
+  border: 1px solid silver;
+  box-shadow: 1px 1px 5px silver;
+  width: 70%;
+  margin: 30px auto;
+  padding-bottom: 18px;
+}
+
+.post-header img {
+  width: 30px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 12px;
+}
+
+.post-header span {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.post {
+  overflow: hidden;
+}
+
+.post img {
+  display: block;
+  width: 100%;
+}
+
+.like-section i {
+  display: inline-block;
+  font-size: 25px;
+  margin: 14px 0 10px 18px;
+}
+
+.like-section i:hover {
+  cursor: pointer;
+}
+
+.like-section p {
+  margin-left: 18px;
+  font-weight: 500;
+}

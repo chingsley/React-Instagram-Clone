@@ -1,26 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
+import dummyData from './dummy-data';
+import PostContainer from './components/PostContainer/Index';
+import SearchBar from './components/SearchBar/Index';
 import './App.css';
+import { Container, Col, Row } from 'reactstrap';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      posts: [],
+      filterText: '',
+    };
+  }
+
+  componentDidMount() {
+    this.setState({ posts: dummyData });
+  }
+
+  changeFilterText = e => {
+    this.setState({ filterText: e.target.value });
+  };
+
+  render() {
+    const filteredPosts = this.state.posts.filter(post => post.username.includes(this.state.filterText));
+    return (
+      <div className="App">
+       <Container>
+         <Row>
+            <Col sm="12" md={{ size: 10, offset: 1 }}>
+              <SearchBar
+                filterText={this.state.filterText}
+                changeFilterText={this.changeFilterText}
+              />
+              {filteredPosts.map(post => <PostContainer key={post.id} post={post} />)}
+            </Col>
+          </Row>
+       </Container>
+      </div>
+    );
+  }
 }
 
 export default App;

@@ -1,0 +1,17 @@
+.comment-section {
+  margin-left: 18px;
+}
+
+.comment-section hr {
+  margin-right: 18px;
+}
+
+.comment-section .input-form input {
+  width: 100%;
+  border: none;
+  outline: none;
+  margin-right: 18px;
+  font-size: 14px;
+  height: 36px;
+  
+}

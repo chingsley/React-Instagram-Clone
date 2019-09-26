@@ -1,0 +1,22 @@
+.separator {
+  border-left: 1px solid black;
+  display: block;
+  height: 25px;
+}
+
+.form-control {
+    margin-left: 21.2%;
+    display: block;
+    width: 25%;
+    text-align: center;
+    height: calc(0.8em + .75rem + 2px);
+    border-radius: 0px;
+}
+
+.bg-light {
+    background-color: transparent !important;
+}
+
+.instagram-text {
+  font-family: 'billabongregular',Cursive;
+}
