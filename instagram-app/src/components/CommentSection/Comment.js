@@ -1,12 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import { Button } from 'reactstrap';
 
-const Comment = props => {
-  return (
-    <p className="comment">
-      <strong>{props.comment.username}</strong>: {props.comment.text}
-    </p>
-  );
+class Comment extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      comment: props.comment,
+    };
+  }
+
+  handleDeleteComment = () => {
+    this.props.deleteComment(this.state.comment.id);
+  };
+
+  render() {
+    return (
+      <p className="comment">
+        <span><strong>{this.props.comment.username}</strong>: {this.props.comment.text}</span>
+        <button className="btn-delete" onClick={this.handleDeleteComment}>Delete</button>
+      </p>
+    );
+  }
 };
 
 Comment.propTypes = {
@@ -15,6 +30,6 @@ Comment.propTypes = {
     username: PropTypes.string,
     text: PropTypes.string
   }),
-};
+}
 
 export default Comment;

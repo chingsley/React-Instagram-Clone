@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import Comment from './Comment';
 import NewComment from './NewComment';
 import './CommentSection.css';
@@ -8,6 +9,7 @@ class CommentSection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      post: props.post,
       comments: props.post.comments,
       inputComment: '',
     };
@@ -47,10 +49,26 @@ class CommentSection extends React.Component {
     }, 500);
   };
 
+  deleteComment = commentId => {
+    this.setState(prevState => ({comments: prevState.comments.filter(comment => comment.id !== commentId)}));
+    setTimeout(() => {
+      this.saveCommentsToLocalStorage();
+    }, 500);
+
+    // Another way of achieving the same thing
+    // const filteredComments = this.state.comments.filter(comment => comment.id !== commentId);
+    // this.setState({comments: filteredComments});
+  };
+
   render() {
+    // const start = moment([2019, 8, 5]);
+    // const end = moment();
     return (
       <div className="comment-section">
-        {this.state.comments.map(comment => <Comment key={comment.id} comment={comment} />)}
+        {this.state.comments.map(comment => <Comment key={comment.id} comment={comment} deleteComment={this.deleteComment} />)}
+        {/* {console.log('end.to(start) = ', end.to(start)) } */}
+        {/* {console.log(moment(this.state.post.timestamp).format("MM/DD/YY"))} */}
+        <p className="timestamp">{moment(this.state.post.timestamp, 'mm/dd/y, h:m:s a').fromNow()}</p>
         <hr />
         <NewComment inputComment={this.state.inputComment} changeComment={this.changeComment} submitComment={this.submitComment} />
       </div>

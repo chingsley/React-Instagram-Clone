@@ -1,4 +1,5 @@
 import React from 'react';
+import Fuse from 'fuse.js';
 import dummyData from './dummy-data';
 import PostContainer from './components/PostContainer/Index';
 import SearchBar from './components/SearchBar/Index';
@@ -23,7 +24,14 @@ class App extends React.Component {
   };
 
   render() {
-    const filteredPosts = this.state.posts.filter(post => post.username.includes(this.state.filterText));
+    // Normal search usring javascript array filter method
+    // const filteredPosts = this.state.posts.filter(post => post.username.includes(this.state.filterText));
+
+    // Fuzzy search using fuse.js
+    const options = { keys: ['username']};
+    const fuse = new Fuse(this.state.posts, options);
+    const filteredPosts = this.state.filterText ?
+                                fuse.search(this.state.filterText) : this.state.posts;
     return (
       <div className="App">
        <Container>

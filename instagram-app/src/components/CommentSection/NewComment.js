@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
           onChange={props.changeComment}
           value={props.inputComment}
         />
+        <i className="fas fa-ellipsis-h"></i>
       </form>
     );
   };
