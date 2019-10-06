@@ -41,3 +41,10 @@
   margin-left: 18px;
   font-weight: 500;
 }
+
+
+@media (max-width: 770px) {
+  .post-container {
+    width: 90%;
+  }
+}

@@ -4,7 +4,13 @@
   height: 25px;
 }
 
-.form-control {
+.img-instagram-logo {
+  width: 100px;
+  height: 100%;
+  /* border: 1px solid red; */
+}
+
+.search-input-field {
     margin-left: 21.2%;
     display: block;
     width: 25%;

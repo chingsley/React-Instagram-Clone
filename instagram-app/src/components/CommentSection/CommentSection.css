@@ -28,6 +28,7 @@
   /* border: 1px solid silver; */
   display: flex;
   justify-content: space-between;
+  /* flex-wrap: wrap; */
   /* margin: 2em 0; */
 }
 
@@ -52,5 +53,9 @@
 @media (max-width: 500px) {
   .comment-section .input-form input {
     width: 80%;
+  }
+
+  .comment {
+    display: block;
   }
 }

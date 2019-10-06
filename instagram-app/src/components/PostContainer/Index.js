@@ -11,6 +11,7 @@ class PostContainer extends React.Component {
     super(props);
     this.state = {
       post: this.props.post,
+      currentUser:this.props.currentUser,
     };
   }
 
@@ -20,7 +21,7 @@ class PostContainer extends React.Component {
         <PostHeader post={this.state.post} />
         <Post post={this.state.post} />
         <LikeSection post={this.state.post} />
-        <CommentSection post={this.state.post} />
+        <CommentSection post={this.state.post} currentUser={this.state.currentUser} />
       </div>
     );
   }

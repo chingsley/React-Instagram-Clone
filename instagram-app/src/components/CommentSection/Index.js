@@ -12,6 +12,7 @@ class CommentSection extends React.Component {
       post: props.post,
       comments: props.post.comments,
       inputComment: '',
+      currentUser: props.currentUser,
     };
   }
 
@@ -40,7 +41,7 @@ class CommentSection extends React.Component {
   submitComment = e => {
     e.preventDefault();
     const id = this.state.comments.length + 1;
-    const newComment = { id, username: 'chingsley', text: this.state.inputComment };
+    const newComment = { id, username: this.state.currentUser.username, text: this.state.inputComment };
     const comments = this.state.comments;
     comments.push(newComment);
     this.setState({ comments, inputComment: '' });

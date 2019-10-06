@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import IGLogo from '../../assets/iglogo.png';
 import './SearchBar.css';
 import {
   Input,
@@ -35,8 +36,10 @@ export default class SearchBar extends React.Component {
       <Navbar color="light" light expand="md">
         <NavbarBrand href="/"><i className="fab fa-instagram"></i></NavbarBrand>
         <NavbarBrand><span className="separator"></span></NavbarBrand>
-        <NavbarBrand href="/"><span className="instagram-text">Instagram</span></NavbarBrand>
+        {/* <NavbarBrand href="/"><span className="instagram-text">Instagram</span></NavbarBrand> */}
+        <NavbarBrand href="/"><img className="img-instagram-logo" alt="instagram logo" src={IGLogo}/></NavbarBrand>
         <Input
+          className="search-input-field"
           placeholder="search"
           onChange={this.props.changeFilterText}
           value={this.props.filterText}
