@@ -1,9 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import moment from 'moment';
 import Comment from './Comment';
 import NewComment from './NewComment';
 import './CommentSection.css';
+
+const CommentSectionWrapper = styled.div`
+  margin-left: 18px;
+  margin-right: 18px;
+
+  hr {
+    margin-right: 18px;
+  }
+
+  .timestamp {
+    color: rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+`;
 
 class CommentSection extends React.Component {
   constructor(props) {
@@ -62,17 +80,15 @@ class CommentSection extends React.Component {
   };
 
   render() {
-    // const start = moment([2019, 8, 5]);
-    // const end = moment();
     return (
-      <div className="comment-section">
+      <CommentSectionWrapper>
         {this.state.comments.map(comment => <Comment key={comment.id} comment={comment} deleteComment={this.deleteComment} />)}
         {/* {console.log('end.to(start) = ', end.to(start)) } */}
         {/* {console.log(moment(this.state.post.timestamp).format("MM/DD/YY"))} */}
         <p className="timestamp">{moment(this.state.post.timestamp, 'mm/dd/y, h:m:s a').fromNow()}</p>
         <hr />
         <NewComment inputComment={this.state.inputComment} changeComment={this.changeComment} submitComment={this.submitComment} />
-      </div>
+      </CommentSectionWrapper>
     );
   }
 }

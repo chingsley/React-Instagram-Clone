@@ -1,12 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const PostHeaderWrapper = styled.div`
+  img {
+    width         : 30px;
+    border-radius : 50%;
+    display       : inline-block;
+    margin        : 12px;
+  }
+
+  span {
+    font-size      : 14px;
+    font-weight    : 700;
+  }
+`;
 
 const PostHeader = ({ post }) => {
   return (
-    <div className="post-header">
+    <PostHeaderWrapper>
       <img src={post.thumbnailUrl} alt="thumbnail diagram" />
       <span>{post.username}</span>
-    </div>
+    </PostHeaderWrapper>
   );
 };
 

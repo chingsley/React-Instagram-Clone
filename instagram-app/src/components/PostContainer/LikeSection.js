@@ -1,5 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const LikeSectionWrapper = styled.div`
+  
+  i {
+    display     : inline-block;
+    font-size   : 25px;
+    margin      : 14px 0 10px 18px;
+  }
+
+  i:hover {
+    cursor      : pointer;
+  }
+
+  p {
+    margin-left : 18px;
+    font-weight : 500;
+  }
+`;
 
 class LikeSection extends React.Component {
   constructor(props) {
@@ -32,11 +51,11 @@ class LikeSection extends React.Component {
   
   render() {
     return (
-      <div className="like-section">
+      <LikeSectionWrapper>
         <i className="far fa-heart" onClick={this.incrementLike} />
         <i className="far fa-comment" />
         <p>{this.state.likes} likes</p>
-      </div>
+      </LikeSectionWrapper>
     );
   }
 }

@@ -1,3 +1,5 @@
+/*
+
 .comment-section {
   margin-left: 18px;
   margin-right: 18px;
@@ -25,11 +27,8 @@
 }
 
 .comment {
-  /* border: 1px solid silver; */
   display: flex;
   justify-content: space-between;
-  /* flex-wrap: wrap; */
-  /* margin: 2em 0; */
 }
 
 .comment span {
@@ -59,3 +58,5 @@
     display: block;
   }
 }
+
+*/

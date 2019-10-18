@@ -1,11 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const Input = styled.input`
+  width: 90%;
+  border: none;
+  outline: none;
+  margin-right: 18px;
+  font-size: 14px;
+  height: 36px;
+
+  @media (max-width: 500px) {
+    width: 80%;
+  }
+`;
 
 
   const NewComment = props => {
     return (
       <form onSubmit={props.submitComment} className="input-form">
-        <input
+        <Input
           type="text"
           placeholder="Add a comment..."
           onChange={props.changeComment}
