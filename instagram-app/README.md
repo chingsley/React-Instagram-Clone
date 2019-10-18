@@ -11,3 +11,8 @@ This app is deployed [here](https://chingsley-instagram-clone.netlify.com/).
 > - `npm install`
 - Start the server with the following command
 > - `npm start`
+- To view implementation using styled-components, checkout the branch 'day-4-styled-components" using the following command, then run npm install, and npm start.
+> - `git checkout day-4-styled-components`
+> - `npm install`
+> - `npm start`
+
